@@ -1,4 +1,4 @@
-# akrasia-angular
+# Akrasia-Angular - Calendar Time Management Application
 
 Welcome to Akrasia!
 If you’ve ever found yourself having trouble starting a project on time or sticking to a plan to complete it, then you’re familiar with the stress that procrastination can bring. You’re not alone in this either; dozens of studies from all sorts of different research groups have been conducted on this subject, and while the numbers vary, the result is the same between all of them – procrastination is much more common than you might think.
