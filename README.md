@@ -11,4 +11,4 @@ Even creating an account on our profile is as easy as it gets; if you have a Goo
 ## Profile management
 Once you've signed up, your information is filled in automatically from your Google account, but you can change it as you like, and it will only affect your profile here. From here, you can set some details that will customize your experience; set which hours of the day you normally sleep, and Akrasia will schedule projects around this block of time, so you won't get alerts in the middle of your rest. Similarly, you can set two full days during the week that you would like to avoid getting alerts, and our website will schedule due dates for your projects around these days.
 
-![alt text](https://github.com/SenecaCollegeBTSProjects/Group_09/blob/master/BTS530/Images/Update.jpg)
+![alt text](https://github.com/pirathapan28/akrasia-angular/blob/master/images/image.png)
