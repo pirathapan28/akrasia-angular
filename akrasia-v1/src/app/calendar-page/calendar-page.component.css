@@ -1,0 +1,10 @@
+.calendar-container {
+    margin: auto; /* there used to be 5% before auto */
+    max-width: 50%; /* 80% */
+}
+
+h2 {
+    padding: 10px;
+}
+
+

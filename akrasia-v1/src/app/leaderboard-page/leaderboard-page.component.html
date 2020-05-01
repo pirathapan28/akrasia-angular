@@ -1,0 +1,30 @@
+<div *ngIf="this.contentLoaded" class="container">
+    <h1>Leaderboards</h1>
+    <div>
+        <ul class="nav nav-tabs">
+                <li><button [class.active]="this.index == 0" class="btn" (click)="selectBoard(0)">Created Projects</button></li>
+                <li><button [class.active]="this.index == 1" class="btn" (click)="selectBoard(1)">Early Projects</button></li>
+                <li><button [class.active]="this.index == 2" class="btn" (click)="selectBoard(2)">Late Projects</button></li>
+                <li><button [class.active]="this.index == 3" class="btn" (click)="selectBoard(3)">Time Taken</button></li>
+                <li><button [class.active]="this.index == 4" class="btn" (click)="selectBoard(4)">Early/Late Ratio</button></li>
+                <li><button [class.active]="this.index == 5" class="btn" (click)="selectBoard(5)">Total Achievements</button></li>
+        </ul>
+    </div>
+
+    <br>
+    <button type="button" class="btn view" (click)="changeView()">{{viewName}}</button>
+
+    <div class="table-container">
+        <app-leaderboard-table *ngIf="allTime" class="width" [users]="userList" [which]="index" [end]="10"></app-leaderboard-table>
+        <app-leaderboard-weekly *ngIf="!allTime" class="width" [users]="userList" [which]="index" [end]="10"></app-leaderboard-weekly>
+    </div>
+
+    <!-- <div *ngIf="!this.allTime" class="table-container">
+        <app-leaderboard-weekly class="width" [users]="userList" [which]="index" [end]="10"></app-leaderboard-weekly>
+    </div> -->
+    
+</div>
+
+<div *ngIf="!this.contentLoaded">
+    <app-loading-page [displayMsg]="this.errorMsg"></app-loading-page>
+</div>

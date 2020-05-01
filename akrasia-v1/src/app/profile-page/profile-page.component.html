@@ -1,0 +1,118 @@
+<div *ngIf="this.contentLoaded" class="container">
+<div class="row">
+
+<div class="profile col-md-4 h-25">
+  
+  <img src={{picURL}} alt="profile picture">
+
+  <h4>{{user.email}}</h4>
+
+  <button (click)="deleteQuestion()" class="btn btn-danger btn-sm">Delete My Account</button>
+</div>
+
+<div class="col-md-8">
+  <form (ngSubmit)='onSubmit()' #f='ngForm'>
+
+    <div class="form-group">
+      <label for="userName">Username </label>
+      <input type="text" class="form-control" name="userName" [(ngModel)]="user.username" required #userName="ngModel">
+      <!-- Validation error area -->
+      <div *ngIf='userName.invalid && (userName.dirty || userName.touched)' class='alert alert-danger user-input'>
+        <div class="notice" *ngIf='userName.errors?.required'>Username is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">First Name </label>
+      <input type="text" class="form-control" name="firstName" [(ngModel)]="user.first_name" required #firstName="ngModel">
+      <!-- Validation error area -->
+      <div *ngIf='firstName.invalid && (firstName.dirty || firstName.touched)' class='alert alert-danger user-input'>
+        <div class="notice" *ngIf='firstName.errors?.required'>First name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name </label>
+      <input type="text" class="form-control" name="lastName" [(ngModel)]="user.last_name" required #lastName="ngModel">
+      <!-- Validation error area -->
+      <div *ngIf='lastName.invalid && (lastName.dirty || lastName.touched)' class='alert alert-danger user-input'>
+        <div class="notice" *ngIf='lastName.errors?.required'>Last name is required</div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="settingsTitle">Schedule Settings</div>
+    <label for="time">Select a block of time. Akrasia will not schedule events during these hours (based on 24-hr clock).</label>
+    <div class="form-group row">
+      <label for="time" class="control-label col-md-2 timeLabel">Starting at:</label>       
+      <select class="form-control" id="time" name="time" [(ngModel)]="user.settings.schedule_off" [value]="user.settings.schedule_off">
+        <option value="0">00:00</option> 
+        <option value="1">01:00</option> 
+        <option value="2">02:00</option> 
+        <option value="3">03:00</option>
+        <option value="4">04:00</option> 
+        <option value="5">05:00</option> 
+        <option value="6">06:00</option> 
+        <option value="7">07:00</option>
+        <option value="8">08:00</option> 
+        <option value="9">09:00</option> 
+        <option value="10">10:00</option> 
+        <option value="11">11:00</option>
+        <option value="12">12:00</option> 
+        <option value="13">13:00</option> 
+        <option value="14">14:00</option> 
+        <option value="15">15:00</option>
+        <option value="16">16:00</option> 
+        <option value="17">17:00</option> 
+        <option value="18">18:00</option> 
+        <option value="19">19:00</option>
+        <option value="20">20:00</option> 
+        <option value="21">21:00</option> 
+        <option value="22">22:00</option> 
+        <option value="23">23:00</option>
+      </select>
+
+      
+      <div class="unit col-md-2 timeLabel">for </div>
+      <select class="form-control" id="time2" name="time2" [(ngModel)]="user.settings.off_length" [value]="user.settings.off_length">
+        <option>6</option> <option>7</option> <option>8</option> <option>9</option> <option>10</option>
+      </select>
+      <div class="col-md-1 timeLabel">hours. </div>   
+    </div>
+          
+    <label for="days">Select up to two days off. Akrasia will not schedule events on these days.</label>
+    <div class="form-group row">
+      <label for="days" class="control-label col-md-2 dayLabel">Days off: </label>
+      <select class="form-control" id="days" name="days" [(ngModel)]="user.settings.day_off1">
+        <option value="-1">--None--</option>  
+        <option value="0">Sunday</option>
+        <option value="1">Monday</option> 
+        <option value="2">Tuesday</option> 
+        <option value="3">Wednesday</option> 
+        <option value="4">Thursday</option> 
+        <option value="5">Friday</option> 
+        <option value="6">Saturday</option>
+      </select>
+      <select class="form-control" id="days2" name="days2" [(ngModel)]="user.settings.day_off2">
+        <option value="-1">--None--</option>  
+        <option value="0">Sunday</option>
+        <option value="1">Monday</option> 
+        <option value="2">Tuesday</option> 
+        <option value="3">Wednesday</option> 
+        <option value="4">Thursday</option> 
+        <option value="5">Friday</option> 
+        <option value="6">Saturday</option>
+      </select>
+    </div>
+
+    <button type="submit" *ngIf="this.user" class="btn btn-success">Save Changes</button>
+    
+  </form>
+</div>
+
+</div>
+</div>
+
+<div *ngIf="!this.contentLoaded">
+  <app-loading-page [displayMsg]="this.errorMsg"></app-loading-page>
+</div>

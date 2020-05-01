@@ -1,0 +1,52 @@
+<div class="container">
+    <form (ngSubmit)='updateProject()' #f='ngForm'>
+
+        <div class="form-group">
+            <label class="control-label" for="title">Title:</label>
+            <input class="form-control user-input" id="name" name="title" [(ngModel)]="project.summary" required #title="ngModel" autofocus>
+            <!-- Validation error area -->
+            <div *ngIf='title.invalid && (title.dirty || title.touched)' class='alert alert-danger user-input'>
+                <div *ngIf='title.errors?.required'>Title is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="description">Description:</label>
+            <input type="text" class="form-control user-input" name="description" [(ngModel)]="project.description" placeholder="description of the project (optional)">
+        </div>
+
+        <div class="control-label">
+            <p>Priority Level:  
+                <span *ngIf="project.extendedProperties.shared.urgency_level == 1" class="priority minor">MINOR</span>
+                <span *ngIf="project.extendedProperties.shared.urgency_level == 2" class="priority somewhat-important">SOMEWHAT IMPORTANT</span>
+                <span *ngIf="project.extendedProperties.shared.urgency_level == 3" class="priority important">IMPORTANT</span>
+                <span *ngIf="project.extendedProperties.shared.urgency_level == 4" class="priority major">MAJOR</span>
+                <span *ngIf="project.extendedProperties.shared.urgency_level == 5" class="priority code-red">CRITICAL</span>
+            </p>
+        </div>
+
+        <div class=control-label>
+            <p>Actual Due Date: <span class="estimate">{{actual_due_date}}</span>
+            </p>
+        </div>
+
+        <div class=control-label>
+            <p>Offset Due Date: <span class="estimate">{{false_due_date}}</span>
+            </p>
+        </div>
+        
+        <div class=control-label>
+            <p>Estimated Time to Complete: <span class="estimate">{{minToHours(project.extendedProperties.shared.estimated_time)}} hours</span>
+            </p>
+        </div>
+        <div class=control-label>
+            <p>Hours Worked on this Project: <span class="estimate">{{minToHours(project.extendedProperties.shared.time_worked)}} hours</span>
+            </p>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Update Project Details</button>
+        <button id="work-button" class="btn btn-primary" routerLink="/timer">Work On This Project</button>
+        <button id="finish-button" [disabled]="disableFinish === true" class="btn btn-success" (click)="onFinish()">Mark This Project As Complete!</button>
+        <button class="btn btn-danger" (click)="onDelete()">Delete This Project</button>
+               
+    </form>
+</div>

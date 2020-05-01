@@ -1,0 +1,35 @@
+<div *ngIf="this.contentLoaded" class="container">
+    <h1>Home</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Early/Late Ratio</h2>
+            <div>
+                <app-leaderboard-table [users]="userList" [which]="4" [end]="5"></app-leaderboard-table>
+                <a class="nav-link" routerLink="/leaderboards">More Leaderboards...</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>Upcoming Projects</h2>
+            <div class="my-custom-scrollbar table-wrapper-scroll-y">
+                <table scrollY="500px" *ngFor="let e of calendarEvents" class="list-group">
+                    <tr class="list-big row" [ngClass]="{
+                        'code-red': e.urgency_level == 5,
+                        'major': e.urgency_level == 4,
+                        'important': e.urgency_level == 3,
+                        'somewhat-important': e.urgency_level == 2,
+                        'minor': e.urgency_level == 1
+                    }"
+                    (click)="handleEventClick(e)">
+                        <td width="75%">{{e.title}}</td>
+                        <td class="25%">{{e.start}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div *ngIf="!this.contentLoaded">
+    <app-loading-page [displayMsg]="this.errorMsg"></app-loading-page>
+</div>

@@ -1,0 +1,15 @@
+#timer{
+    font-size: 5em;
+}
+
+#pause-button {
+    margin-left: 20px;
+}
+
+#stop-working-button {
+    margin-left: 20px;
+}
+
+#estimate {
+    margin-top: 20px;
+}

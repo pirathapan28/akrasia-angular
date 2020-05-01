@@ -1,0 +1,19 @@
+.intro{
+    font-size: 20px;
+}
+
+.imagerow{
+    margin-left: 10px;
+    width: 95%;
+    display: flex;
+    justify-content:space-between;
+    padding-bottom: 30px;
+}
+
+.example{
+    width: 45%;
+    padding:1px;
+    border:1px solid #021a40;
+    background-color:#ff9c00;
+    border-radius: 5px;
+}

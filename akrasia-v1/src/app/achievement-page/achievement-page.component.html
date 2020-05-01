@@ -1,0 +1,9 @@
+<div *ngIf="this.contentLoaded" class="container">
+    <div *ngFor="let a of achieveSetup">
+        <app-achievement-banner [achievement]="a"></app-achievement-banner>
+    </div>
+</div>
+
+<div *ngIf="!this.contentLoaded">
+    <app-loading-page [displayMsg]="this.errorMsg"></app-loading-page>
+</div>

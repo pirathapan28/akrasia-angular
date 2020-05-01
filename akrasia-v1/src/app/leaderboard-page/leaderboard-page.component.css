@@ -1,0 +1,33 @@
+.container {
+    margin-top: 20px;
+    max-width: 60%;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+.active {
+    background: orange;
+}
+
+.width {
+    width: 50% !important; 
+    max-width: 50%;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.weekly {
+    text-align: center;
+    display: inline-block;
+    font-size: 55px;
+}
+
+.view {
+    background-color:  orange;
+    width: 200px;
+}

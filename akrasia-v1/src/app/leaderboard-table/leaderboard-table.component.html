@@ -1,0 +1,22 @@
+
+<h4>All Time</h4>
+
+<table class="table table-striped">
+    <thead class="header">
+        <tr class="header">
+                <th width="50%">Username</th>
+                <th>{{this.header}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of this.users | slice:0:end;">
+            <td>{{user.username}}</td>
+            <td *ngIf="which == 0">{{user.stats.num_projects_created}}</td>
+            <td *ngIf="which == 1">{{user.stats.num_projects_finished_early}}</td>
+            <td *ngIf="which == 2">{{user.stats.num_projects_finished_late}}</td>
+            <td *ngIf="which == 3">{{user.stats.total_time_worked}}</td>
+            <td *ngIf="which == 4">{{user.stats.num_projects_finished_early}} : {{user.stats.num_projects_finished_late}}</td>
+            <td *ngIf="which == 5">{{user.achieves}}</td>
+        </tr>
+    </tbody>
+</table>

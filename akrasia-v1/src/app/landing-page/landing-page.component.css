@@ -1,0 +1,52 @@
+.list-big {
+    font-weight: bolder;
+    font-size: 16pt;
+    text-align: left;
+    padding:15px;
+    padding-left: 20px;
+}
+
+.list-big:hover {
+    background-color: lightsalmon;
+    cursor:pointer;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+}
+
+.list-group {
+    margin-right: 10px;
+    margin-bottom: 2px;
+    width:95%;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+#table {
+    width: 100px;
+}
+
+.code-red {
+    background-color: orangered;
+}
+
+.major {
+    background-color: orange;
+}
+
+.important {
+    background-color: yellow;
+}
+
+.somewhat-important {
+    background-color: yellowgreen;
+}
+
+.minor {
+    background-color: green;
+}

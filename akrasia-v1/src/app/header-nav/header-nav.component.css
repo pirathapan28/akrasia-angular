@@ -1,0 +1,26 @@
+#banner {
+    max-width:100%;
+    height: auto;
+}
+
+#banner-holder {
+    width: 200px;
+    padding: 10px;
+}
+
+#logo {
+    width: 120px;
+    margin-right: 10px;
+}
+
+#navigate {
+    background: #ff9c00;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.space {
+    height: 90px;
+}

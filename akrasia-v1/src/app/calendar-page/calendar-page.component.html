@@ -1,0 +1,20 @@
+<div *ngIf="!this.contentLoaded" class="calendar-container">
+    <full-calendar 
+        #calendar 
+        defaultView="dayGridMonth" 
+        [header]="{
+            left: 'dayGridMonth, timeGridWeek',
+            center: 'title'
+        }"
+        [allDaySlot]="false"
+        [slotLabelFormat]="labelFormat"
+        [plugins]="calendarPlugins"
+        [events]="calendarEvents" 
+        (dateClick)="handleDateClick($event)"
+        (eventClick)="handleEventClick($event)"
+        deepChangeDetection="false">
+    </full-calendar>
+</div>
+<div *ngIf="this.contentLoaded">
+    <app-loading-page [displayMsg]="this.errorMsg"></app-loading-page>
+</div>

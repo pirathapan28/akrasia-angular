@@ -1,0 +1,20 @@
+<!-- <img src='../../assets/cardimage-timer-05.png'> -->
+<!-- <p>Estimated Time to Complete: <span class="estimate">{{project.extendedProperties.shared.estimated_time}} hours</span></p> -->
+<div class="container">
+
+    <div id="timer">{{toHHMMSS(time)}}</div>
+    
+
+    <button class="btn btn-success" [disabled]="play" (click)='startTimer()'>Start Timer</button>
+    <button id="pause-button" class="btn btn-success" [disabled]="!play" (click)='pauseTimer()'>Pause</button>
+    <button id="stop-working-button" class="btn btn-danger" (click)="finish()">Stop Working</button>
+
+    <div id="estimate" class=control-label>
+        <p>Estimated Time to Complete: <span class="estimate">{{minToHours(project.extendedProperties.shared.estimated_time)}} hours</span>
+        </p>
+    </div>
+    <div class=control-label>
+        <p>Previous Hours Worked: <span class="estimate">{{minToHours(project.extendedProperties.shared.time_worked)}} hours</span>
+        </p>
+    </div>
+</div>

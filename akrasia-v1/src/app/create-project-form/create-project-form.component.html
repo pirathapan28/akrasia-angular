@@ -1,0 +1,52 @@
+<div class="container">
+    <form (ngSubmit)='createProject()' #f='ngForm'>
+
+        <div class="form-group">
+            <label class="control-label" for="title">Title:</label>
+            <input class="form-control user-input" id="name" name="title" [(ngModel)]="project.summary" required #title="ngModel" autofocus>
+            <!-- Validation error area -->
+            <div *ngIf='title.invalid && (title.dirty || title.touched)' class='alert alert-danger user-input'>
+                <div *ngIf='title.errors?.required'>Title is required</div>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="time" class="control-label col-sm-1">Time:</label>
+            <input type="time" name="timePicker" [(ngModel)]="timePicker" class="form-control timepicker">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="description">Description:</label>
+            <input type="text" class="form-control user-input" name="description" [(ngModel)]="project.description" placeholder="description of the project (optional)">
+        </div>
+    
+        <div class="form-group slider user-input">
+            <label for="urgency" class="control-label">Set the Priority Level of your Project:</label><br>
+            <ng-container *ngIf="project.extendedProperties.shared.urgency_level === 1">MINOR - very few steps, or no other projects depend on this one</ng-container>
+            <ng-container *ngIf="project.extendedProperties.shared.urgency_level === 2">SOMEWHAT IMPORTANT - another project depends on this one's completion</ng-container>
+            <ng-container *ngIf="project.extendedProperties.shared.urgency_level === 3">IMPORTANT - more complex, or this projects affects a few others</ng-container>
+            <ng-container *ngIf="project.extendedProperties.shared.urgency_level === 4">MAJOR - larger number of steps, or many projects are affected by this one</ng-container>
+            <ng-container *ngIf="project.extendedProperties.shared.urgency_level === 5">CODE RED - CRITICAL PROJECT DETECTED</ng-container>
+            <input type="range" min="1" max="5" class="form-control" name="urgency" [(ngModel)]="project.extendedProperties.shared.urgency_level" [value]="project.extendedProperties.shared.urgency_level" required>
+        </div>
+        
+        <div class="form-group row">
+            <label for="percentage" class="control-label col-sm-3">Project Weight:</label>
+            <input type="number" min="0" max="100" class="form-control" id="percentage" name="percentage" #percentage="ngModel" [(ngModel)]="project.extendedProperties.shared.percentage" [value]="project.extendedProperties.shared.percentage" required>
+            <div class="unit">%</div>
+            <!-- Validation error area -->
+            <div *ngIf='percentage.invalid && (percentage.dirty || percentage.touched)' class='alert alert-danger'>
+                <div *ngIf='percentage.min < 0'>Percentage must be greater than 0%</div>
+                <div *ngIf='percentage.max > 100'>Percentage must be less than 100%</div>
+            </div>
+        </div>
+        
+        <div class=control-label>
+            <p>Estimated Time to Complete: <span class="estimate">{{this.m.estimateTime(project.extendedProperties.shared.urgency_level, project.extendedProperties.shared.percentage)/60}} hours</span>
+            </p>
+        </div>
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Create</button>
+    </form>
+
+    <!-- <button class="btn btn-primary" (click)="testTime()">Test Time</button> -->
+</div>

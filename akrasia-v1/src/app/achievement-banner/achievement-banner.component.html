@@ -1,0 +1,16 @@
+<div class="achieve row">
+    <img [class]="isComplete ? 'pic col-md-3' : 'pic-complete col-md-3'" [src]="achievement.img">
+    <div class="col-md-9">
+        <h3>{{achievement.title}}</h3>
+        <p>{{achievement.desc}}</p>
+        <hr />
+        <div>
+            <h4 *ngIf="this.isComplete" class="complete">Complete!</h4>
+            <div class="progress">
+                <div class="progress-bar" [style.background-color]="isComplete ? 'gray' : 'orange'" role="progressbar" [attr.aria-valuenow]="achievement.status" aria-valuemin="0" [attr.aria-valuemax]="achievement.outOf" [style.width]="(achievement.status * 100 / achievement.outOf) + '%'">
+                  <span class="progress-desc">{{achievement.status}} / {{achievement.outOf}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

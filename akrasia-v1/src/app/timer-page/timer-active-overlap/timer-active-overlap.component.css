@@ -1,0 +1,7 @@
+button {
+    width: 100px;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end;;
+}

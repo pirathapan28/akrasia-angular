@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Log In</h1>
+    <form (ngSubmit)='onSubmit()' #f='ngForm'>
+      <div class="form-group">
+        <label for="id">Please Enter ID: </label>
+        <input type="text" class="form-control" name="id" [(ngModel)]="userLogin.id" required>
+      </div>
+      
+      <button type="submit" class="btn btn-success">Log In</button>
+
+      <!-- GOOGLE LOGIN BUTTON -->
+      <!-- <button class="btn white darken-4 col s10 m4" >
+        <a href="/users/google-oauth/" style="text-transform:none">
+            <div class="left" data-onsuccess="onSignIn">
+                <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+            </div>
+            Login with Google
+        </a>
+      </button> -->
+
+
+      
+
+    </form>
+  
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <!-- UP TO THIS PART -->
+</div>

@@ -1,0 +1,58 @@
+.btn {
+    margin-right: 20px;
+}
+
+.control-label {
+    font-size: 20px;
+}
+
+#percentage {
+    width: 100px;
+}
+
+.estimate {
+    color: #ff9c00;
+}
+
+.unit {
+    font-size: 25px;
+    text-align: center;
+}
+
+#finish-button{
+    margin-right: 100px;
+}
+
+.priority{
+    display: inline-block;
+    border-radius: 25px;
+    border: 2px solid #C0C0C0;
+    font-size: 16px;
+    width: 220px;
+    padding: 2px;
+    text-align: center;
+}
+
+.code-red {
+    background-color: orangered;
+}
+
+.major {
+    background-color: coral;
+}
+
+.important {
+    background-color: gold;
+}
+
+.somewhat-important {
+    background-color: yellowgreen;
+}
+
+.minor {
+    background-color: darkseagreen;
+}
+
+.user-input {
+    max-width: 80%;
+}
